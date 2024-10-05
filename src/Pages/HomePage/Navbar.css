@@ -3,6 +3,7 @@
   padding: 10px 0;
   color: #fff;
   display: flex;
+  justify-content: space-evenly;
   height: 15vh;
 }
 
@@ -11,9 +12,7 @@
   justify-content: space-between;
   width: 10vw;
   height: 5vh;
-  position: absolute;
-  right: 2%;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 
 .them-changer,
@@ -23,7 +22,23 @@
 }
 
 .logo {
-  position: absolute;
-  left: 1%;
-  padding: 1rem;
+  margin: 1rem;
+}
+
+.navigation {
+  font-size: 1.5rem;
+    margin: auto;
+  width: 40vw;
+  height: 10vh;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navigation ul li a {
+  color: #fff;
+  text-decoration-line: none;
 }
