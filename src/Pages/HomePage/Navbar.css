@@ -16,9 +16,10 @@
 }
 
 .them-changer,
-.login-icon {
+.login-icon a {
   cursor: pointer;
   transition: 0.5s;
+  color: #fff;
 }
 
 .logo {
@@ -27,7 +28,7 @@
 
 .navigation {
   font-size: 1.5rem;
-    margin: auto;
+  margin: auto;
   width: 40vw;
   height: 10vh;
 }
@@ -41,4 +42,5 @@
 .navigation ul li a {
   color: #fff;
   text-decoration-line: none;
+  font-weight: 600;
 }

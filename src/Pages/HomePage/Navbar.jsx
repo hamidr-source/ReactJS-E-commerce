@@ -3,14 +3,14 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
-import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
+import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <LocalMallRoundedIcon sx={{fontSize: 50}} />
+        <LocalMallRoundedIcon sx={{ fontSize: 50 }} />
       </div>
 
       <div className="navigation">
@@ -28,7 +28,9 @@ const Navbar = () => {
       </div>
       <div className="right-navbar">
         <div className="login-icon">
-          <AccountCircleIcon fontSize="large" />
+          <Link to="/login">
+            <AccountCircleIcon fontSize="large" />
+          </Link>
         </div>
         <div className="them-changer">
           <DarkModeRoundedIcon fontSize="large" />
