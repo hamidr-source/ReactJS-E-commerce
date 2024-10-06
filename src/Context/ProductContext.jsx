@@ -16,7 +16,6 @@ const ProductProvider = ({ children }) => {
       .then((res) => setProducts(res.data));
   }, []);
 
-  console.log(products);
   return (
     <ProductContext.Provider value={{ products }}>
       {children}
