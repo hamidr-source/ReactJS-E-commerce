@@ -4,7 +4,7 @@ import React, { createContext, useEffect, useState } from "react";
 const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios
@@ -12,10 +12,15 @@ const ProductProvider = ({ children }) => {
         "https://fakestoreapi.com/products",
         (axios.defaults.headers.common["Authorization"] = 555)
       )
-      .then((res) => console.log(res.data));
-  });
+      ?.then((res) => setProducts(res.data));
+  }, []);
 
-  return <ProductContext.Provider>{children}</ProductContext.Provider>;
+  console.log(products)
+  return (
+    <ProductContext.Provider value={{ products }}>
+      {children}
+    </ProductContext.Provider>
+  );
 };
 
 export default ProductProvider;
