@@ -2,7 +2,6 @@ import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
-import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
 import "./Navbar.css";
 

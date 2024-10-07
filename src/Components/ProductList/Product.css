@@ -11,12 +11,13 @@
 
 .product-card {
     background-color: #eee;
-    height: 35vh;
+    height: 40vh;
     width: 20vw;
-    margin: 1em;
+    margin: .5em;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    align-items: center;
     justify-content: space-evenly;
     font-size: .8rem;
     padding: 1em;
@@ -24,11 +25,26 @@
     transition: .6s;
     cursor: pointer;
     border-radius: .5em;
+    box-shadow: 1px 1px 10px rgba(167, 167, 167, 0.836);
 }
 
 .product-image {
-  height: 15vh;
-  width: 10vw;
-  border: 0.3px solid black;
+  height: 25vh;
+  width: 15vw;
+
   border-radius: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    .product-list {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 2em;
+        margin: 2em;
+      }
+
+      .product-card {
+        height: 80vh;
+        width: 60vw
+      }
 }

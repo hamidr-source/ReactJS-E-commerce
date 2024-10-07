@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-evenly;
   height: 15vh;
+  width: 100vw;
 }
 
 .right-navbar {
@@ -13,6 +14,8 @@
   width: 10vw;
   height: 5vh;
   margin: 1rem;
+  position: absolute;
+  right: 3%;
 }
 
 .them-changer,
