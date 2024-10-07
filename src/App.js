@@ -1,13 +1,15 @@
 import HomePage from "./Pages/HomePage/HomePage";
-import ProductProvider from "./Context/ProductContext";
+
+import BlogPage from "./Pages/BlogPage/BlogPage";
+import NavbarRouter from "./Router/Navbar.Router";
 
 function App() {
   return (
-    <ProductProvider>
+
       <div className="App">
-        <HomePage />
+        <NavbarRouter />
       </div>
-    </ProductProvider>
+
   );
 }
 
