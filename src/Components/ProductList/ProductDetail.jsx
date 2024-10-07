@@ -11,7 +11,7 @@ export default function ProductDetail({ image, title, price }) {
           {title}
         </div>
         <div className="product-price">
-          {price}
+          {price} $
         </div>
       </div>
     </Link>

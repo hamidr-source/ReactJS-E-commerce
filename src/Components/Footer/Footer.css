@@ -1,0 +1,23 @@
+footer {
+    position: absolute;
+    left: 0;
+    bottom: calc(- 100vh - 150vh);
+    width: 100vw;
+    display: flex;
+    height: 15vh;
+    background-color: #0f3460;
+}
+
+.social-media {
+    color: white;
+    justify-content: end;
+    position: inherit;
+    right: 5%;
+    display: flex;
+    gap: 1em;
+    width: 10vw;
+}
+
+.social-media svg {
+    cursor: pointer;
+}
