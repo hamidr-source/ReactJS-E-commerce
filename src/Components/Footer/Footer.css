@@ -13,6 +13,7 @@ footer {
     justify-content: end;
     position: inherit;
     right: 5%;
+    bottom: 5%;
     display: flex;
     gap: 1em;
     width: 10vw;
@@ -20,4 +21,19 @@ footer {
 
 .social-media svg {
     cursor: pointer;
+}
+
+.left-footer {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    position: absolute;
+    left: 3%;
+    bottom: 5%;
+}
+
+.left-footer p {
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
