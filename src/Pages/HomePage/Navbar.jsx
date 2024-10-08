@@ -3,7 +3,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
-import "./Navbar.css";
+import "./HomePage.css";
 
 const Navbar = () => {
   return (
