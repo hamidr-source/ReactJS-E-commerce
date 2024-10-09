@@ -34,9 +34,12 @@
 
   border-radius: 1em;
 }
+
 .product-price{
     color: blue;
 }
+
+
 
 @media only screen and (max-width: 600px) {
   .product-list {

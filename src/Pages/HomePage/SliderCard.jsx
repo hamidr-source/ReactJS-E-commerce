@@ -1,6 +1,7 @@
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Rating } from "@mui/material";
 import Slider from "react-slick";
 import { useProducts } from "../../Context/ProductContext";
 import { Link } from "react-router-dom";
@@ -33,6 +34,12 @@ const SliderCard = () => {
               <p>{value.title}</p>
               <p>{value.description}</p>
             </div>
+            <Rating
+              name="read-only"
+              value={value.rating.rate}
+              readOnly
+              className="rating"
+            />
           </div>
         </Link>
       ))}

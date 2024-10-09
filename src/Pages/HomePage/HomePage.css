@@ -85,6 +85,7 @@
 
 .slide-card {
   display: flex !important;
+  justify-content: space-evenly;
   gap: 1rem;
   height: 40vh;
   width: 60vw;
