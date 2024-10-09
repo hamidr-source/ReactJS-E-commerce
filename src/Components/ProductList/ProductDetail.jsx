@@ -3,9 +3,9 @@ import "./Product.css";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function ProductDetail({ image, title, price, rating }) {
+export default function ProductDetail({ image, title, price, rating, id }) {
   return (
-    <Link to='/product'>
+    <Link to={`/product/${id}`}>
       <div className="product-card">
           <img src={image} alt={title} className="product-image" />
         <div className="product-title">
