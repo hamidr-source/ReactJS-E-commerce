@@ -1,21 +1,19 @@
 import React from "react";
 import { useProducts } from "../../Context/ProductContext";
 import ProductDetail from "./ProductDetail";
-import "./Product.css"
+import "./Product.css";
 
-const ProductList = () => {
-  const { products } = useProducts();
+const ProductList = ({products}) => {
 
-  console.log(products)
+  console.log(products);
 
   return (
     <div className="product-list">
       {products.map((product, index) => (
         <ProductDetail key={index} {...product} />
       ))}
-
     </div>
-  )
+  );
 };
 
 export default ProductList;
