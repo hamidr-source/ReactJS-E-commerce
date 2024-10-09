@@ -1,11 +1,8 @@
 import React from "react";
 import ProductDetail from "./ProductDetail";
-import "./Product.css";
+import "./Products.css";
 
-const ProductList = ({products}) => {
-
-  console.log(products);
-
+const ProductList = ({ products }) => {
   return (
     <div className="product-list">
       {products.map((product, index) => (
