@@ -5,6 +5,7 @@ import { Rating } from "@mui/material";
 import Slider from "react-slick";
 import { useProducts } from "../../Context/ProductContext";
 import { Link } from "react-router-dom";
+import "./HomePage.css"
 
 const SliderCard = () => {
   const { products } = useProducts();

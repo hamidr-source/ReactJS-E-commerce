@@ -1,0 +1,50 @@
+.navbar {
+  background-color: #0f3460;
+  padding: 10px 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  height: 15vh;
+  width: 100vw;
+  position: sticky;
+}
+
+.right-navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 10vw;
+  height: 5vh;
+  margin: 1rem;
+  position: absolute;
+  right: 3%;
+}
+
+.them-changer,
+.login-icon a {
+  cursor: pointer;
+  transition: 0.5s;
+  color: #fff;
+}
+
+.logo {
+  margin: 1rem;
+}
+
+.navigation {
+  font-size: 1.5rem;
+  margin: auto;
+  width: 40vw;
+  height: 10vh;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navigation ul li a {
+  color: #fff;
+  text-decoration-line: none;
+  font-weight: 600;
+}
