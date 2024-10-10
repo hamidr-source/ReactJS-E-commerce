@@ -30,7 +30,7 @@ const Navbar = () => {
       </div>
       <div className="right-navbar">
         <div className="login-icon">
-          <Link to={cookies.cookies.user ? "/dashboard" : "/login"}>
+          <Link to={cookies.cookies.length > 0 ? "/dashboard" : "/login"}>
             <AccountCircleIcon fontSize="large" />
           </Link>
         </div>

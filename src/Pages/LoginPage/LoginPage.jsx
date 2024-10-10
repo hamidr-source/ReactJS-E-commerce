@@ -16,7 +16,10 @@ const LoginPage = () => {
     const currentUser = users.find((user) => {
       return user.email === userEmail;
     });
-    setCookie("user", currentUser.username, { path: "/" });
+    
+    const date = new Date();
+    date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
+    setCookie("user", currentUser.username, { path: "/", expires: date });
 
     users.forEach((user) => {
       if (!currentUser) {
