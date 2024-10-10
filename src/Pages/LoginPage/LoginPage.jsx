@@ -16,7 +16,7 @@ const LoginPage = () => {
     const currentUser = users.find((user) => {
       return user.email === userEmail;
     });
-    
+
     const date = new Date();
     date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
     setCookie("user", currentUser.username, { path: "/", expires: date });
@@ -34,40 +34,34 @@ const LoginPage = () => {
   }
 
   return (
-    <CookiesProvider value={{ cookies }}>
-      {cookies.user ? (
-        <HomePage />
-      ) : (
-        <div className="login-page">
-          <div className="form">
-            <form className="login-form">
-              <input
-                type="email"
-                className="email-input"
-                placeholder="email"
-                value={userEmail}
-                onChange={(e) => setUserEmail(e.target.value)}
-              />
-              <input
-                type="text"
-                className="username-input"
-                placeholder="username"
-              />
-              <input
-                type="password"
-                className="password-input"
-                placeholder="password"
-              />
-              <button onClick={(e) => handleSignIn(e)}>login</button>
-              <p className="message">
-                Not registered?
-                <Link to="/sign-up"> Create account</Link>
-              </p>
-            </form>
-          </div>
-        </div>
-      )}
-    </CookiesProvider>
+    <div className="login-page">
+      <div className="form">
+        <form className="login-form">
+          <input
+            type="email"
+            className="email-input"
+            placeholder="email"
+            value={userEmail}
+            onChange={(e) => setUserEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            className="username-input"
+            placeholder="username"
+          />
+          <input
+            type="password"
+            className="password-input"
+            placeholder="password"
+          />
+          <button onClick={(e) => handleSignIn(e)}>login</button>
+          <p className="message">
+            Not registered?
+            <Link to="/sign-up"> Create account</Link>
+          </p>
+        </form>
+      </div>
+    </div>
   );
 };
 
