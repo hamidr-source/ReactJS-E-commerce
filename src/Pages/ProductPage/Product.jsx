@@ -15,7 +15,7 @@ const Product = () => {
         (axios.defaults.headers.common["Authorization"] = 555)
       )
       .then((response) => setProdct(response.data));
-  }, []);
+  }, [params.id]);
 
   return (
     <div className="product-container">
