@@ -13,10 +13,10 @@ const LoginPage = () => {
 
   function handleSignIn(e) {
     e.preventDefault();
-    setCookie("user", { path: "/" });
     const currentUser = users.find((user) => {
       return user.email === userEmail;
     });
+    setCookie("user", currentUser.username, { path: "/" });
 
     users.forEach((user) => {
       if (!currentUser) {
@@ -31,7 +31,7 @@ const LoginPage = () => {
   }
 
   return (
-    <CookiesProvider>
+    <CookiesProvider value={{ cookies }}>
       {cookies.user ? (
         <HomePage />
       ) : (
