@@ -9,19 +9,23 @@ import { Cookies } from "react-cookie";
 function App() {
   const cookies = new Cookies();
   return (
-    <Router>
-      <Routes>
-        {cookies.cookies.user ? (
-          <Route path="/home" element={<HomePage />} />
-        ) : (
-          <Route path="*" element={<LoginPage />} />
-        )}
 
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          {cookies.cookies.user ? (
+            <Route path="/" element={<HomePage />} />
+          ) : (
+            <Route path="/login" element={<LoginPage />} />
+          )}
+          {/* <Route path="/home" element={<HomePage />} /> */}
+          <Route path="*" element={<LoginPage />} />
+
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
+
   );
 }
 

@@ -12,7 +12,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   function handleSignIn(e) {
-    e.preventDefault();
+
     const currentUser = users.find((user) => {
       return user.email === userEmail;
     });
@@ -28,7 +28,7 @@ const LoginPage = () => {
         currentUser.password === user.password &&
         currentUser.email === user.email
       ) {
-        navigate("/home");
+        navigate("/");
       }
     });
   }
