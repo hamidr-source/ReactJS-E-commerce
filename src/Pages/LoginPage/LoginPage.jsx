@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./LoginPage.css";
 import { useProducts } from "../../Context/ProductContext";
-import { CookiesProvider, useCookies } from "react-cookie";
-import HomePage from "../HomePage/HomePage";
+import { useCookies } from "react-cookie";
 
 const LoginPage = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -12,25 +11,26 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   function handleSignIn(e) {
+    if (userEmail) {
+      const currentUser = users.find((user) => {
+        return user.email === userEmail;
+      });
 
-    const currentUser = users.find((user) => {
-      return user.email === userEmail;
-    });
-
-    const date = new Date();
-    date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
-    setCookie("user", currentUser.username, { path: "/", expires: date });
-
-    users.forEach((user) => {
-      if (!currentUser) {
-        console.log("Not found");
-      } else if (
-        currentUser.password === user.password &&
-        currentUser.email === user.email
-      ) {
-        navigate("/");
-      }
-    });
+      users.forEach((user) => {
+        if (!currentUser) {
+          console.log("Not found");
+          e.preventDefault();
+        } else if (
+          currentUser.password === user.password &&
+          currentUser.email === user.email
+        ) {
+          const date = new Date();
+          date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
+          setCookie("user", currentUser.username, { path: "/", expires: date });
+          navigate("/");
+        }
+      });
+    }
   }
 
   return (

@@ -26,8 +26,8 @@ const SliderCard = () => {
   return (
     <Slider {...settings}>
       {slideProducts.map((value, index) => (
-        <Link to={`/product/${value.id}`}>
-          <div className="slide-card" key={index}>
+        <Link to={`/product/${value.id}`}  key={index}>
+          <div className="slide-card">
             <div className="left-slide-side">
               <img src={value.image} alt={value.title} />
             </div>
