@@ -1,0 +1,12 @@
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+}
+
+.dashboard button {
+    width: 10vw;
+    height: 5vh;
+}
