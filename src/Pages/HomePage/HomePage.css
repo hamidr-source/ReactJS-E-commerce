@@ -58,8 +58,9 @@
 }
 
 .slick-prev,
+.slick-arrow,
 .slick-next {
-  display: none;
+  display: none !important;
 }
 
 .pagination-container {

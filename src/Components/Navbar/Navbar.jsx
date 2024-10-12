@@ -1,14 +1,14 @@
 import React from "react";
+import ThemeChanger from "../ThemeChanger/ThemeChanger";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
-import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
 import "./Navbar.css";
 import { Cookies } from "react-cookie";
 
 const Navbar = () => {
-  const cookies = new Cookies()
-  console.log(cookies.cookies.user)
+  const cookies = new Cookies();
+  console.log(cookies.cookies.user);
   return (
     <div className="navbar">
       <div className="logo">
@@ -34,9 +34,7 @@ const Navbar = () => {
             <AccountCircleIcon fontSize="large" />
           </Link>
         </div>
-        <div className="them-changer">
-          <DarkModeRoundedIcon fontSize="large" />
-        </div>
+        <ThemeChanger />
       </div>
     </div>
   );
