@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useInput } from "../../Hooks/useInput";
 import { useNavigate, Link } from "react-router-dom";
 import "./LoginPage.css";
 import { useProducts } from "../../Context/ProductContext";
 import { useCookies } from "react-cookie";
 
 const LoginPage = () => {
-  const [userEmail, setUserEmail] = useState("");
+  const [userEmail, resetUserEmail] = useInput("");
   const { users } = useProducts();
   const [cookies, setCookie] = useCookies(["user"]);
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const LoginPage = () => {
   function handleSignIn(e) {
     if (userEmail) {
       const currentUser = users.find((user) => {
-        return user.email === userEmail;
+        return user.email === userEmail.value;
       });
 
       users.forEach((user) => {
@@ -32,6 +33,7 @@ const LoginPage = () => {
       });
     }
   }
+  resetUserEmail();
 
   return (
     <div className="login-page">
@@ -41,8 +43,7 @@ const LoginPage = () => {
             type="email"
             className="email-input"
             placeholder="email"
-            value={userEmail}
-            onChange={(e) => setUserEmail(e.target.value)}
+            {...userEmail}
           />
           <input
             type="text"

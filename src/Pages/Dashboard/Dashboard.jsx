@@ -12,7 +12,7 @@ const Dashboard = () => {
     cookies.remove('user', { path: '/', domain: 'localhost' });
     navigate("/login")
   };
-  console.log(cookies.cookies)
+  
   return (
     <div className="dashboard">
       <h1>Hey Dear {cookies.cookies.user}</h1>{" "}
