@@ -9,7 +9,7 @@ const ThemeChanger = () => {
     document.body.style.color = "#fff";
     document.body.style.backgroundColor = "#2e2e47b0";
   } else {
-    document.body.style.color = "#2e2e47b0";
+    document.body.style.color = "#000";
     document.body.style.backgroundColor = "#fff";
   }
 
