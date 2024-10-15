@@ -23,8 +23,7 @@ const LoginPage = () => {
         if (!currentUser) {
           e.preventDefault();
         } else if (
-          currentUser.password === user.password &&
-          currentUser.email === user.email
+          currentUser.password === user.password 
         ) {
           const date = new Date();
           date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
@@ -47,11 +46,6 @@ const LoginPage = () => {
             placeholder="email"
             value={userEmail}
             onChange={(e) => setUserEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            className="username-input"
-            placeholder="username"
           />
           <input
             type="password"
