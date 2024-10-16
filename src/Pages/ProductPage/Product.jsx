@@ -3,21 +3,17 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Rating } from "@mui/material";
 import Button from "@mui/material/Button";
-import { useProducts } from "../../Context/ProductContext";
 import "./Product.css";
+
 
 const Product = () => {
   const [product, setProdct] = useState([]);
-  const { products, addProductsToLocalStorage } = useProducts();
   const params = useParams();
-  
-  function handleAddProduct(productId) {
-    const currentProduct = products.find((product) => {
-      return product.id === productId
-    })
-    
-    console.log(currentProduct)
-    addProductsToLocalStorage(currentProduct)
+
+  function handleAddProduct(product) {
+    const cart = JSON.parse(localStorage.getItem("productBasket"))
+    cart.push(product)
+    localStorage.setItem("productBasket", JSON.stringify(cart))
   }
 
   useEffect(() => {
@@ -51,13 +47,14 @@ const Product = () => {
             color="primary"
             variant="contained"
             sx={{ fontSize: 16 }}
-            onClick={() => handleAddProduct(product.id)}
+            onClick={() => handleAddProduct(product)}
           >
             Buy
           </Button>
         </p>
       </div>
       <p className="product-item-desc">{product.description}</p>
+
     </div>
   );
 };
