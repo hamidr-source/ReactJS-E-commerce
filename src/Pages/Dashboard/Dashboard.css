@@ -10,3 +10,40 @@
     width: 10vw;
     height: 5vh;
 }
+
+.product-basket {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem;
+    font-size: 1.2rem;
+}
+
+.basket-image {
+    height: 5vh;
+    width: 5vw;
+}
+
+.cart {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    height: 5rem;
+}
+
+.right-basket {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 5%;
+}
+
+.basket-title {
+    width: 40%;
+}
+
+.total-price {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+}
