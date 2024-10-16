@@ -8,6 +8,15 @@ const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState("");
 
+  function addProductsToLocalStorage (product) {
+    const getProducts = localStorage.getItem("productBasket")
+    if (getProducts) {
+      localStorage.setItem("productBasket",  [getProducts, JSON.stringify(product)]);
+    } else {
+      localStorage.setItem("productBasket",  JSON.stringify(product));
+    }
+  }
+
   useEffect(() => {
     axios
       .get(
@@ -25,7 +34,7 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ products, users }}>
+    <ProductContext.Provider value={{ products, users, addProductsToLocalStorage }}>
       {children}
     </ProductContext.Provider>
   );
