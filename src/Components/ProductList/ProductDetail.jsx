@@ -2,6 +2,7 @@ import React from "react";
 import "./Products.css";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 export default function ProductDetail({ image, title, price, rating, id }) {
   return (
@@ -18,7 +19,10 @@ export default function ProductDetail({ image, title, price, rating, id }) {
           />
         </div>
         <div className="product-price">
-          {price} $<button>Buy</button>
+          {price} $
+          <Button color="primary" variant="contained" sx={{ fontSize: 14 }}>
+            Buy
+          </Button>
         </div>
       </div>
     </Link>

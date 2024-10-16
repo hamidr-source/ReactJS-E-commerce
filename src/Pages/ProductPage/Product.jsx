@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Rating } from "@mui/material";
+import Button from "@mui/material/Button";
 import "./Product.css";
 
 const Product = () => {
@@ -34,7 +35,7 @@ const Product = () => {
         />
         <p className="product-item-count">Quantity: {product.rating?.count}</p>
         <p className="product-item-price">
-          {product.price} $<button>Buy</button>
+          {product.price} $<Button color="primary" variant="contained" sx={{fontSize: 16}}>Buy</Button>
         </p>
       </div>
       <p className="product-item-desc">{product.description}</p>

@@ -43,7 +43,7 @@
   gap: 2rem;
 }
 
-.product-price button {
+/* .product-price button {
   background-color: #0f3460;
   color: #fff;
   width: 5vw;
@@ -51,7 +51,7 @@
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-}
+} */
 
 @media only screen and (max-width: 600px) {
   .product-list {
