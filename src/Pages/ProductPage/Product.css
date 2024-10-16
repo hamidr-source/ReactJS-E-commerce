@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   font-size: 1.3rem;
 }
 
@@ -26,6 +26,20 @@
 
 .product-item-price {
   color: blue;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.product-item-price button {
+  background-color: #0f3460;
+  color: #fff;
+  width: 5vw;
+  height: 3vh;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .product-detail {

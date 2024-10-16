@@ -17,7 +17,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <h1>Hey Dear {cookies.cookies.user}</h1>
       <Button variant="outlined" color="error" onClick={handleRemove}>
-        Log Out <LogoutIcon />
+        Log Out  <LogoutIcon />
       </Button>
     </div>
   );

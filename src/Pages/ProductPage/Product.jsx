@@ -26,7 +26,6 @@ const Product = () => {
       />
       <p className="product-item-title">{product.title}</p>
       <div className="product-detail">
-        <p className="product-item-price">{product.price} $</p>
         <Rating
           name="read-only"
           value={product.rating?.rate ?? 5}
@@ -34,6 +33,9 @@ const Product = () => {
           className="product-item-rating"
         />
         <p className="product-item-count">Quantity: {product.rating?.count}</p>
+        <p className="product-item-price">
+          {product.price} $<button>Buy</button>
+        </p>
       </div>
       <p className="product-item-desc">{product.description}</p>
     </div>
