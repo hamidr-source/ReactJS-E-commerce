@@ -4,10 +4,15 @@ const ProductBasket = () => {
   const localStorageData = JSON.parse(localStorage.getItem("productBasket"));
   console.log(localStorageData);
 
-  let totalPrice = localStorageData.map(element => {
-    return element.price 
+  let totalPrice = localStorageData.map((element) => {
+    return element.price;
   });
-  console.log(totalPrice)
+  
+  let sum = totalPrice.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+
   return (
     <div className="product-basket">
       {localStorageData.map((product, index) => (
@@ -17,9 +22,8 @@ const ProductBasket = () => {
           <div className="basket-price">{product.price} $</div>
         </div>
       ))}
-      {/* <div className="total-price">{totalPrice.map((price) => (
-        <p>{price + price}</p>
-      ))}</div> */}
+
+      <p>{sum} $</p>
     </div>
   );
 };
