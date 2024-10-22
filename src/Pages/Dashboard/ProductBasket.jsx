@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const ProductBasket = () => {
-  const localStorageData = JSON.parse(localStorage.getItem("productBasket"));
-  console.log(localStorageData);
+  const [price, setPrice] = useState(0);
+  const [products, setProducts] = useState([]);
 
-  let totalPrice = localStorageData.map((element) => {
-    return element.price;
-  });
+  useEffect(() => {
+    const localStorageData = JSON.parse(localStorage.getItem("productBasket"));
+    if (localStorageData) {
+      let totalPrice = localStorageData.map((element) => {
+        return element.price;
+      });
+      let sum = totalPrice.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      );
 
-  let sum = totalPrice.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0
-  );
+      setProducts(localStorageData);
+      setPrice(sum);
+    }
+  }, []);
 
   return (
     <div className="product-basket">
-      {localStorageData.map((product, index) => (
+      {products.map((product, index) => (
         <div key={index} className="cart">
           <img
             src={product.image}
@@ -29,7 +36,7 @@ const ProductBasket = () => {
         </div>
       ))}
 
-      <p className="total-price">Total Price:  {sum} $</p>
+      <p className="total-price">Total Price: {price} $</p>
     </div>
   );
 };

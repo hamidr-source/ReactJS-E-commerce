@@ -43,7 +43,7 @@
 }
 
 .total-price {
-    position: absolute;
-    right: 5%;
-    bottom: 10%;
+    position: relative;
+    right: 0;
+    bottom: calc(- 100vh - 100vh);
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import PaginatedProducts from "./Pagination";
 import Footer from "../../Components/Footer/Footer";

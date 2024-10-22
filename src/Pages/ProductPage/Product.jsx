@@ -11,11 +11,12 @@ const Product = () => {
   const params = useParams();
 
   function handleAddProduct(product) {
+    localStorage.setItem("productBasket")
     const cart = JSON.parse(localStorage.getItem("productBasket"))
     cart.push(product)
     localStorage.setItem("productBasket", JSON.stringify(cart))
   }
-
+  
   useEffect(() => {
     axios
       .get(
