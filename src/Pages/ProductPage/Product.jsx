@@ -5,18 +5,20 @@ import { Rating } from "@mui/material";
 import Button from "@mui/material/Button";
 import "./Product.css";
 
-
 const Product = () => {
   const [product, setProdct] = useState([]);
   const params = useParams();
 
   function handleAddProduct(product) {
-    localStorage.setItem("productBasket")
-    const cart = JSON.parse(localStorage.getItem("productBasket"))
-    cart.push(product)
-    localStorage.setItem("productBasket", JSON.stringify(cart))
+    const cart = JSON.parse(localStorage.getItem("productBasket"));
+    if (cart) {
+      cart.push(product);
+      localStorage.setItem("productBasket", JSON.stringify(cart));
+    } else {
+      localStorage.setItem("productBasket", JSON.stringify([]));
+    }
   }
-  
+
   useEffect(() => {
     axios
       .get(
@@ -55,7 +57,6 @@ const Product = () => {
         </p>
       </div>
       <p className="product-item-desc">{product.description}</p>
-
     </div>
   );
 };

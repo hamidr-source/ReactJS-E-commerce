@@ -17,7 +17,7 @@ const ProductBasket = () => {
 
       setProducts(localStorageData);
       setPrice(sum);
-    }
+    } 
   }, []);
 
   return (
