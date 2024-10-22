@@ -10,6 +10,7 @@ const Dashboard = () => {
   const cookies = new Cookies();
   const navigate = useNavigate();
   const handleRemove = () => {
+    localStorage.clear();
     cookies.remove("user", { path: "/", domain: "localhost" });
     navigate("/login");
   };
