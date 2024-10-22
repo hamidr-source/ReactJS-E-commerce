@@ -3,8 +3,26 @@ import "./Products.css";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import { useProducts } from "../../Context/ProductContext";
 
 export default function ProductDetail({ image, title, price, rating, id }) {
+  const { products } = useProducts();
+
+  function handleAddProduct(productId) {
+    const product = products.find((product) => {
+      return product.id === productId;
+    });
+
+    const cart = JSON.parse(localStorage.getItem("productBasket"));
+    if (cart) {
+      cart.push(product);
+      localStorage.setItem("productBasket", JSON.stringify(cart));
+      alert("Prodcut add");
+    } else {
+      localStorage.setItem("productBasket", JSON.stringify([]));
+      alert("Prodcut don't add");
+    }
+  }
   return (
     <Link to={`/product/${id}`}>
       <div className="product-card">
@@ -20,7 +38,12 @@ export default function ProductDetail({ image, title, price, rating, id }) {
         </div>
         <div className="product-price">
           {price} $
-          <Button color="primary" variant="contained" sx={{ fontSize: 14 }}>
+          <Button
+            color="primary"
+            variant="contained"
+            sx={{ fontSize: 14 }}
+            onClick={() => handleAddProduct(id)}
+          >
             Buy
           </Button>
         </div>

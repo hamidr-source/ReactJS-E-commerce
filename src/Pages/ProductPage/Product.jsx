@@ -14,8 +14,10 @@ const Product = () => {
     if (cart) {
       cart.push(product);
       localStorage.setItem("productBasket", JSON.stringify(cart));
+      alert("Prodcut add")
     } else {
       localStorage.setItem("productBasket", JSON.stringify([]));
+      alert("Prodcut don't add")
     }
   }
 
