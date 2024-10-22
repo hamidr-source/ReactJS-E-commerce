@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from "react";
+import Button from "@mui/material/Button";
 
 const ProductBasket = () => {
   const [price, setPrice] = useState(0);
   const [products, setProducts] = useState([]);
+
+  function handleRemoveProduct(productId) {
+    const product = products.findIndex((product) => {
+      return product.id === productId;
+    });
+    setProducts(products.splice(product, 1));
+    localStorage.setItem("productBasket", JSON.stringify(products));
+    window.location.reload();
+  }
 
   useEffect(() => {
     const localStorageData = JSON.parse(localStorage.getItem("productBasket"));
@@ -17,7 +27,7 @@ const ProductBasket = () => {
 
       setProducts(localStorageData);
       setPrice(Math.round(sum));
-    } 
+    }
   }, []);
 
   return (
@@ -32,6 +42,13 @@ const ProductBasket = () => {
           <div className="basket-title">{product.title}</div>
           <div className="right-basket">
             <div className="basket-price">{product.price} $</div>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={() => handleRemoveProduct(product.id)}
+            >
+              Remove
+            </Button>
           </div>
         </div>
       ))}
