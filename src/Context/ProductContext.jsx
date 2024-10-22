@@ -8,7 +8,17 @@ const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState("");
 
-
+  function handleAddProductInBasket (product) {
+    const cart = JSON.parse(localStorage.getItem("productBasket"));
+    if (cart) {
+      cart.push(product);
+      localStorage.setItem("productBasket", JSON.stringify(cart));
+      alert("Prodcut add")
+    } else {
+      localStorage.setItem("productBasket", JSON.stringify([]));
+      alert("Prodcut don't add")
+    }
+  }
 
   useEffect(() => {
     axios
@@ -28,7 +38,7 @@ const ProductProvider = ({ children }) => {
 
   return (
     <ProductContext.Provider
-      value={{ products, users }}
+      value={{ products, users, handleAddProductInBasket }}
     >
       {children}
     </ProductContext.Provider>

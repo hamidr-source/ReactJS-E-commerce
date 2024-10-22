@@ -4,21 +4,15 @@ import axios from "axios";
 import { Rating } from "@mui/material";
 import Button from "@mui/material/Button";
 import "./Product.css";
+import { useProducts } from "../../Context/ProductContext";
 
 const Product = () => {
   const [product, setProdct] = useState([]);
   const params = useParams();
+  const {handleAddProductInBasket} = useProducts()
 
   function handleAddProduct(product) {
-    const cart = JSON.parse(localStorage.getItem("productBasket"));
-    if (cart) {
-      cart.push(product);
-      localStorage.setItem("productBasket", JSON.stringify(cart));
-      alert("Prodcut add")
-    } else {
-      localStorage.setItem("productBasket", JSON.stringify([]));
-      alert("Prodcut don't add")
-    }
+    handleAddProductInBasket(product)
   }
 
   useEffect(() => {

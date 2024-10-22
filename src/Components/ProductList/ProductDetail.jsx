@@ -6,23 +6,16 @@ import Button from "@mui/material/Button";
 import { useProducts } from "../../Context/ProductContext";
 
 export default function ProductDetail({ image, title, price, rating, id }) {
-  const { products } = useProducts();
+  const { products, handleAddProductInBasket } = useProducts();
 
   function handleAddProduct(productId) {
     const product = products.find((product) => {
       return product.id === productId;
     });
 
-    const cart = JSON.parse(localStorage.getItem("productBasket"));
-    if (cart) {
-      cart.push(product);
-      localStorage.setItem("productBasket", JSON.stringify(cart));
-      alert("Prodcut add");
-    } else {
-      localStorage.setItem("productBasket", JSON.stringify([]));
-      alert("Prodcut don't add");
-    }
+    handleAddProductInBasket(product)
   }
+  
   return (
     <div className="product-card">
       <Link to={`/product/${id}`}>
