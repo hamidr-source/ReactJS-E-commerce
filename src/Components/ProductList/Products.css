@@ -43,15 +43,11 @@
   gap: 2rem;
 }
 
-/* .product-price button {
-  background-color: #0f3460;
-  color: #fff;
-  width: 5vw;
-  height: 3vh;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-} */
+.product-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media only screen and (max-width: 600px) {
   .product-list {

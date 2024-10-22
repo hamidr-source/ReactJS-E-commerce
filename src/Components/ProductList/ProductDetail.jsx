@@ -24,8 +24,8 @@ export default function ProductDetail({ image, title, price, rating, id }) {
     }
   }
   return (
-    <Link to={`/product/${id}`}>
-      <div className="product-card">
+    <div className="product-card">
+      <Link to={`/product/${id}`}>
         <img src={image} alt={title} className="product-image" />
         <div className="product-title">{title}</div>
         <div className="product-rating">
@@ -36,18 +36,18 @@ export default function ProductDetail({ image, title, price, rating, id }) {
             className="rating"
           />
         </div>
-        <div className="product-price">
-          {price} $
-          <Button
-            color="primary"
-            variant="contained"
-            sx={{ fontSize: 14 }}
-            onClick={() => handleAddProduct(id)}
-          >
-            Buy
-          </Button>
-        </div>
+      </Link>
+      <div className="product-price">
+        {price} $
+        <Button
+          color="primary"
+          variant="contained"
+          sx={{ fontSize: 14 }}
+          onClick={() => handleAddProduct(id)}
+        >
+          Buy
+        </Button>
       </div>
-    </Link>
+    </div>
   );
 }
