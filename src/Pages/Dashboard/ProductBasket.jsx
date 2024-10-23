@@ -6,12 +6,12 @@ const ProductBasket = () => {
   const [products, setProducts] = useState([]);
 
   function handleRemoveProduct(productId) {
-    const product = products.findIndex((product) => {
-      return product.id === productId;
+    const product = products.filter((product) => {
+      return product.id !== productId;
     });
-    setProducts(products.splice(product, 1));
-    localStorage.setItem("productBasket", JSON.stringify(products));
-    window.location.reload();
+
+    setProducts(product);
+    localStorage.setItem("productBasket", JSON.stringify(product));
   }
 
   useEffect(() => {
