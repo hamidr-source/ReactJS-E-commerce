@@ -9,7 +9,7 @@ import "./Dashboard.css";
 const Dashboard = () => {
   const cookies = new Cookies();
   const navigate = useNavigate();
-  const handleRemove = () => {
+  const handleLogOut = () => {
     localStorage.clear();
     cookies.remove("user", { path: "/", domain: "localhost" });
     navigate("/login");
@@ -19,7 +19,7 @@ const Dashboard = () => {
     <>
       <div className="dashboard">
         <h1>Hey Dear {cookies.cookies.user}</h1>
-        <Button variant="outlined" color="error" onClick={handleRemove}>
+        <Button variant="outlined" color="error" onClick={handleLogOut}>
           Log Out <LogoutIcon />
         </Button>
       </div>

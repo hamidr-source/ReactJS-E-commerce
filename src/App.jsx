@@ -5,6 +5,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import { Cookies } from "react-cookie";
+import SignupPage from "./Pages/SignupPage/SignupPage";
 
 function App() {
   const cookies = new Cookies();
@@ -18,6 +19,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
           )}
           <Route path="*" element={<LoginPage />} />
+          <Route path="/sign-up" element={<SignupPage />} />
 
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/product/:id" element={<Product />} />

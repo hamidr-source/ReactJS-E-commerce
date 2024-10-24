@@ -1,24 +1,21 @@
 import React, { useState } from "react";
-import { useInput } from "../../Hooks/useInput";
 import { useNavigate, Link } from "react-router-dom";
-import { useProducts } from "../../Context/ProductContext";
 import { useCookies } from "react-cookie";
+import { useUsersData } from "../../Context/UserContext";
 import "./LoginPage.css";
 
 const LoginPage = () => {
   const [userEmail, setUserEmail] = useState("");
-  const { users } = useProducts();
+  const { users } = useUsersData();
   const [cookies, setCookie] = useCookies(["user"]);
   const navigate = useNavigate();
-
   console.log(users)
-  function handleSignIn(e) {
+  function handleLogin(e) {
     if (userEmail) {
       const currentUser = users.find((user) => {
         return user.email === userEmail;
       });
       
-
       users.forEach((user) => {
         if (!currentUser) {
           e.preventDefault();
@@ -34,12 +31,10 @@ const LoginPage = () => {
     }
   }
 
-  // resetUserEmail();
-
   return (
     <div className="login-page">
       <div className="form">
-        <form className="login-form"  onSubmit={handleSignIn}>
+        <form className="login-form"  onSubmit={handleLogin}>
           <input
             type="email"
             className="email-input"
