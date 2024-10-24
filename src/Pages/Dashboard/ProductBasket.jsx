@@ -3,21 +3,13 @@ import Button from "@mui/material/Button";
 
 const ProductBasket = () => {
   const [price, setPrice] = useState(0);
-  const [products, setProducts] = useState([]);
-
-  function handleRemoveProduct(productId) {
-    const product = products.filter((product) => {
-      return product.id !== productId;
-    });
-
-    setProducts(product);
-    localStorage.setItem("productBasket", JSON.stringify(product));
-  }
+  const [products, setProducts] = useState(
+    JSON.parse(localStorage.getItem("productBasket"))
+  );
 
   useEffect(() => {
-    const localStorageData = JSON.parse(localStorage.getItem("productBasket"));
-    if (localStorageData) {
-      let totalPrice = localStorageData.map((element) => {
+    if (products) {
+      let totalPrice = products.map((element) => {
         return element.price;
       });
       let sum = totalPrice.reduce(
@@ -25,10 +17,18 @@ const ProductBasket = () => {
         0
       );
 
-      setProducts(localStorageData);
       setPrice(Math.round(sum));
     }
-  }, []);
+  }, [products]);
+
+  function handleRemoveProduct(productId) {
+    const product = products.filter((product) => {
+      return product.id !== productId;
+    });
+
+    localStorage.setItem("productBasket", JSON.stringify(product));
+    setProducts(product);
+  }
 
   return (
     <div className="product-basket">
