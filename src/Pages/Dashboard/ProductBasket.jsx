@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 const ProductBasket = () => {
   const [price, setPrice] = useState(0);
   const [products, setProducts] = useState(
-    JSON.parse(localStorage.getItem("productBasket"))
+    JSON.parse(localStorage.getItem("productBasket")) || []
   );
 
   useEffect(() => {
