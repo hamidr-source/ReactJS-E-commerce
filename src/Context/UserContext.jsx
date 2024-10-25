@@ -16,8 +16,34 @@ const UserProvider = ({ children }) => {
       .then((response) => setUsers(response.data));
   }, []);
 
+  function handleAddUser (email, username, password, phoneNumber) {
+    axios.post("https://fakestoreapi.com/users", {
+      body: JSON.stringify({
+        id: users.lenght + 1,
+        email: email,
+        username: username,
+        password: password,
+        name: {
+          firstname: "",
+          lastname: "",
+        },
+        address: {
+          city: "",
+          street: "",
+          number: 0,
+          zipcode: "",
+          geolocation: {
+            lat: "",
+            long: "",
+          },
+        },
+        phone: phoneNumber,
+      }),
+    });
+  }
+
   return (
-    <UserContext.Provider value={{ users }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ users, handleAddUser }}>{children}</UserContext.Provider>
   );
 };
 

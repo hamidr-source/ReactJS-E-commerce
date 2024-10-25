@@ -4,7 +4,6 @@ import { useUsersData } from "../../Context/UserContext";
 import { useInput } from "../../Hooks/useInput";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { VerticalAlignBottom } from "@mui/icons-material";
 
 const SignupPage = () => {
   const [emailProps, resetEmail] = useInput("");
@@ -12,7 +11,7 @@ const SignupPage = () => {
   const [phoneProps, resetPhone] = useInput("");
   const [passwordProps, resetPassword] = useInput("");
   const [confirmPasswordProps, resetCofirmPassword] = useInput("");
-  const { users } = useUsersData();
+  const { users, handleAddUser } = useUsersData();
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -26,33 +25,18 @@ const SignupPage = () => {
     });
 
     if (!currentUser) {
-      await axios.post("https://fakestoreapi.com/users", {
-        body: JSON.stringify({
-          id: users.lenght + 1,
-          email: emailProps.value,
-          username: userNameProps.value,
-          password: passwordProps.value,
-          name: {
-            firstname: "",
-            lastname: "",
-          },
-          address: {
-            city: "",
-            street: "",
-            number: 0,
-            zipcode: "",
-            geolocation: {
-              lat: "",
-              long: "",
-            },
-          },
-          phone: phoneProps.value,
-        }),
-      });
+      await handleAddUser(
+        emailProps.value,
+        userNameProps.value,
+        phoneProps.value,
+        passwordProps.value
+      );
       navigate("/home");
+    } else {
+      navigate("/login");
+      alert("User already exist");
     }
 
-    console.log(currentUser);
     resetUserName();
     resetEmail();
     resetPassword();
