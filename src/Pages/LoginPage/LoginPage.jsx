@@ -6,35 +6,35 @@ import "./LoginPage.css";
 
 const LoginPage = () => {
   const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
   const { users } = useUsersData();
   const [cookies, setCookie] = useCookies(["user"]);
   const navigate = useNavigate();
-  console.log(users)
+  console.log(users);
   function handleLogin(e) {
+    e.preventDefault();
     if (userEmail) {
       const currentUser = users.find((user) => {
         return user.email === userEmail;
       });
-      
-      users.forEach((user) => {
-        if (!currentUser) {
-          e.preventDefault();
-        } else if (
-          currentUser.password === user.password 
-        ) {
-          const date = new Date();
-          date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
-          setCookie("user", currentUser.username, { path: "/", expires: date });
-          navigate("/");
-        }
-      });
+      console.log(userEmail.password);
+      if (!currentUser) {
+        alert("User not exist");
+      } else if (userPassword !== currentUser.password) {
+        alert("Password is wrong");
+      } else {
+        const date = new Date();
+        date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
+        setCookie("user", currentUser.username, { path: "/", expires: date });
+        navigate("/");
+      }
     }
   }
 
   return (
     <div className="login-page">
       <div className="form">
-        <form className="login-form"  onSubmit={handleLogin}>
+        <form className="login-form" onSubmit={handleLogin}>
           <input
             type="email"
             className="email-input"
@@ -46,6 +46,8 @@ const LoginPage = () => {
             type="password"
             className="password-input"
             placeholder="password"
+            value={userPassword}
+            onChange={(e) => setUserPassword(e.target.value)}
           />
           <button>login</button>
           <p className="message">

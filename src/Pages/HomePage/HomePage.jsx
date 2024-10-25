@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import PaginatedProducts from "./Pagination";
 import Footer from "../../Components/Footer/Footer";
 import SliderCard from "./SliderCard";
 import "./HomePage.css"
-import { useUsersData } from "../../Context/UserContext";
 
 const HomePage = () => {
-  const {users} = useUsersData()
   return (
     <div className="home">
       <Navbar />

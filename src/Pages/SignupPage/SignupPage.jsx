@@ -36,7 +36,7 @@ const SignupPage = () => {
           phoneProps.value,
           passwordProps.value
         );
-        navigate("/home");
+        navigate("/");
       } else {
         navigate("/login");
         alert("User already exist");
