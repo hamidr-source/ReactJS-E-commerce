@@ -5,7 +5,7 @@ const UserContext = createContext();
 export const useUsersData = () => useContext(UserContext);
 
 const UserProvider = ({ children }) => {
-  const [users, setUsers] = useState("");
+  const [users, setUsers] = useState();
 
   useEffect(() => {
     axios
