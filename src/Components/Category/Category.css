@@ -5,9 +5,32 @@
   font-size: 1.5rem;
   gap: 1rem;
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .category svg {
   margin: auto;
+}
+
+.category-box {
+  width: 20vw;
+  height: 40vh;
+  color: black;
+  position: absolute;
+  left: 5%;
+  top: 100%;
+  background-color: white;
+}
+
+.close {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
+.category-box span {
+  display: block;
+  margin: 1rem;
 }
