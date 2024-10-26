@@ -1,0 +1,13 @@
+.category {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 1rem;
+  cursor: pointer;
+  opacity: .8;
+}
+
+.category svg {
+  margin: auto;
+}

@@ -26,8 +26,11 @@
   color: #fff;
 }
 
-.logo {
+.left-navbar {
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .navigation {
