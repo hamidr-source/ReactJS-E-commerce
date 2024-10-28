@@ -30,7 +30,7 @@
   display: block;
 }
 
-.category-box span {
+.category-box .categories {
   display: block;
   margin: 1rem;
 }
