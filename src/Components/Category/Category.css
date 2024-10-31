@@ -1,15 +1,11 @@
 .category {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   font-size: 1.5rem;
   gap: 1rem;
-  cursor: pointer;
-  opacity: 0.8;
+  user-select: none;
 }
 
-.category svg {
-  margin: auto;
+.select {
+  cursor: pointer;
 }
 
 .category-box {
@@ -20,6 +16,15 @@
   left: 5%;
   top: 100%;
   background-color: white;
+  box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
+}
+
+.category-box p {
+  transition: .5s;
+}
+
+.category-box p:hover {
+  color: #fdc5ce;
 }
 
 .close {
@@ -33,4 +38,5 @@
 .category-box .categories {
   display: block;
   margin: 1rem;
+  cursor: pointer;
 }
