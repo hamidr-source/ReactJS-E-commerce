@@ -10,7 +10,7 @@
 }
 
 .product-card {
-  background-color: #eee;
+  background-color: transparent;
   height: 50vh;
   width: 20vw;
   margin: 0.5em;
@@ -25,7 +25,7 @@
   transition: 0.6s;
   cursor: pointer;
   border-radius: 0.5em;
-  box-shadow: 1px 1px 10px rgba(167, 167, 167, 0.836);
+  box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
 }
 
 .product-image {

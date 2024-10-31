@@ -10,10 +10,10 @@
 
 .category-box {
   width: 20vw;
-  height: 40vh;
+  height: 30vh;
   color: black;
   position: absolute;
-  left: 5%;
+  left: 3%;
   top: 100%;
   background-color: white;
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
