@@ -5,9 +5,9 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignupPage from "./Pages/SignupPage/SignupPage";
+import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 
 function App() {
-
   return (
     <Router>
       <Routes>
@@ -17,6 +17,7 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/category/:category" element={<CategoryPage />} />
       </Routes>
     </Router>
   );
