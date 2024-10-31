@@ -7,20 +7,24 @@ import { useProducts } from "../../Context/ProductContext";
 
 export default function ProductDetail({ image, title, price, rating, id }) {
   const { products, handleAddProductInBasket } = useProducts();
+  const displayTitle =
+    title.split(" ").length < 8
+      ? title
+      : title.split(" ").slice(0, 7).join(" ") + " ...";
 
   function handleAddProduct(productId) {
     const product = products.find((product) => {
       return product.id === productId;
     });
 
-    handleAddProductInBasket(product)
+    handleAddProductInBasket(product);
   }
-  
+
   return (
     <div className="product-card">
       <Link to={`/product/${id}`}>
-        <img src={image} alt={title} className="product-image" />
-        <div className="product-title">{title}</div>
+        <img src={image} alt={displayTitle} className="product-image" />
+        <div className="product-title">{displayTitle}</div>
         <div className="product-rating">
           <Rating
             name="read-only"
