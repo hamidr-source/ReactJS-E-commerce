@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const ProductBasket = () => {
   const [price, setPrice] = useState(0);
@@ -34,12 +35,14 @@ const ProductBasket = () => {
     <div className="product-basket">
       {products.map((product, index) => (
         <div key={index} className="cart">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="basket-image"
-          />
-          <div className="basket-title">{product.title}</div>
+          <Link to={`/product/${product.id}`}>
+            <img
+              src={product.image}
+              alt={product.title}
+              className="basket-image"
+            />
+            <div className="basket-title">{product.title}</div>
+          </Link>
           <div className="right-basket">
             <div className="basket-price">{product.price} $</div>
             <Button
