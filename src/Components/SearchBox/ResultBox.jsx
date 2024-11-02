@@ -14,9 +14,9 @@ const ResultBox = ({ title, id, image }) => {
 
   return (
     <ul>
-      <li onMouseDown={() => handleProductClick(id)}>
-        <img src={image} alt={displayTitle} />
-        {displayTitle}
+      <li onMouseDown={() => handleProductClick(id)} className="result-product">
+        <img src={image} alt={displayTitle} className="result-product-image" />
+        <p className="result-product-title">{displayTitle}</p>
       </li>
     </ul>
   );

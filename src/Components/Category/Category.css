@@ -15,8 +15,9 @@
   position: absolute;
   left: 3%;
   top: 100%;
-  background-color: white;
+  background-color: #fff;
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
+  z-index: 1;
 }
 
 .category-box p {

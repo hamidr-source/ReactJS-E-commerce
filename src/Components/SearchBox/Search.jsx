@@ -3,6 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { useProducts } from "../../Context/ProductContext";
 import ResultBox from "./ResultBox";
+import "./Search.css";
 
 const Search = () => {
   const { products } = useProducts();
@@ -29,17 +30,18 @@ const Search = () => {
 
   return (
     <div className="search-box">
-      <input
-        placeholder="Search Here ..."
-        value={query}
-        onChange={handleSearchProduct}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      />
-      <Link>
+      <div className="search-input">
+        <input
+          placeholder="Search Here ..."
+          value={query}
+          onChange={handleSearchProduct}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        />
         <SearchIcon />
-      </Link>
-      <div className="complete-box">
+      </div>
+
+      <div className={focused ? "result-box-open" : "result-box-close"}>
         {focused && (
           <div>
             {query === "" ? (
