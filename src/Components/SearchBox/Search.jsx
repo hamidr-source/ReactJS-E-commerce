@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useProducts } from "../../Context/ProductContext";
+import ResultBox from "./ResultBox";
 
 const Search = () => {
   const { products } = useProducts();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [query, setQuery] = useState("");
-  const [focus, setFocus] = useState(false);
-  const navigate = useNavigate();
+  const [focused, setFocused] = useState(false);
 
   function handleSearchProduct(event) {
     const serachQuery = event.target.value;
@@ -20,19 +20,11 @@ const Search = () => {
 
     setFilteredProducts(filtered);
   }
-
   function handleFocus() {
-    setFocus(true);
+    setFocused(true);
   }
-
-  function handleProductClick(productId, event) {
-    event.stopPropagation()
-    console.log(event.isPropagationStopped());
-    navigate(`/product/${productId}`);
-  }
-
   function handleBlur() {
-    setFocus(false);
+    setFocused(false);
   }
 
   return (
@@ -48,21 +40,16 @@ const Search = () => {
         <SearchIcon />
       </Link>
       <div className="complete-box">
-        {focus && (
+        {focused && (
           <div>
             {query === "" ? (
-              <p>Just search everything you want</p>
+              <p>Just search anything you want</p>
             ) : filteredProducts.length > 0 ? (
-              <ul>
+              <div>
                 {filteredProducts.map((product) => (
-                  <li
-                    key={product.id}
-                    onMouseDown={(event) => handleProductClick(product.id, event)}
-                  >
-                    {product.title}
-                  </li>
+                  <ResultBox {...product} />
                 ))}
-              </ul>
+              </div>
             ) : (
               <p>Product Not Found</p>
             )}
