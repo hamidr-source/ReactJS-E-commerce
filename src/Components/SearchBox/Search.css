@@ -65,7 +65,7 @@
   height: 8vh;
   width: 100%;
   gap: 2rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .result-product-image {
@@ -74,10 +74,11 @@
 }
 
 .result-product-btn {
-    border: none;
-    outline: none;
-    font-size: 1.2rem;
-    width: 100%;
-    background-color: #fff;
-    height: 20%;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  width: 100%;
+  background-color: #fff;
+  height: 20%;
+  cursor: pointer;
 }

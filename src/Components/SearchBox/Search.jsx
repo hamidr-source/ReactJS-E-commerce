@@ -11,7 +11,7 @@ const Search = () => {
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
   const [productLimit, setProductLimit] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleSearchProduct(event) {
     const serachQuery = event.target.value;
@@ -29,8 +29,8 @@ const Search = () => {
     }
   }
 
-  function handleNavigateToResultPage (products) {
-    navigate(`/searchResult/${products}`)
+  function handleNavigateToResultPage() {
+    navigate("/searchResult", {state: filteredProducts})
   }
 
   return (
@@ -54,14 +54,16 @@ const Search = () => {
             ) : filteredProducts.length > 0 ? (
               <div>
                 {productLimit.map((product) => (
-                  <ResultBox {...product} />
+                  <ResultBox {...product} key={product.id} />
                 ))}
 
                 <button
                   className={
                     filteredProducts.length > 6 ? "result-product-btn" : "close"
                   }
-                  onMouseDown={() => handleNavigateToResultPage(productLimit)}
+                  onMouseDown={() =>
+                    handleNavigateToResultPage()
+                  }
                 >
                   See more ...
                 </button>
