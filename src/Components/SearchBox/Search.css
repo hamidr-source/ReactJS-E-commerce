@@ -1,9 +1,10 @@
 .search-box {
   position: absolute;
   left: 40%;
-  top: 8%;
+  top: 11%;
   width: 40vw;
   height: 25vh;
+  z-index: 100;
 }
 
 .search-input {
@@ -19,13 +20,13 @@
   height: 100%;
   position: relative;
   top: 33%;
-  border-top-right-radius: .5rem;
-  border-bottom-right-radius: .5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .search-input input {
-  border-top-left-radius: .5rem;
-  border-bottom-left-radius: .5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   outline: none;
   border: none;
   background-color: #727272;
@@ -37,14 +38,14 @@
 }
 
 .search-input input::placeholder {
-    color: #b1b1b1;
+  color: #b1b1b1;
 }
 
 .result-box-open {
   background-color: #fff;
   margin-top: 1.4rem;
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
-  width: 29vw;
+  width: 28.5vw;
   min-height: 3rem;
   height: fit-content;
   z-index: 100;
@@ -59,9 +60,14 @@
 .result-product {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  cursor: pointer;
+  height: 8vh;
+  width: 100%;
+  gap: 2rem;
 }
 
 .result-product-image {
-  width: 10%;
-  height: 5%;
+  width: 15%;
+  height: 90%;
 }
