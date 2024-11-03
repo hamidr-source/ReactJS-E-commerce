@@ -29,8 +29,8 @@ const Search = () => {
     }
   }
 
-  function handleNavigateToResultPage() {
-    navigate("/searchResult", {state: filteredProducts})
+  function handleLoadMore() {
+    navigate("/searchResult", { state: { products: filteredProducts } });
   }
 
   return (
@@ -61,9 +61,7 @@ const Search = () => {
                   className={
                     filteredProducts.length > 6 ? "result-product-btn" : "close"
                   }
-                  onMouseDown={() =>
-                    handleNavigateToResultPage()
-                  }
+                  onMouseDown={() => handleLoadMore()}
                 >
                   See more ...
                 </button>
