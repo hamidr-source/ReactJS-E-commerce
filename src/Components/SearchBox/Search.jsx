@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link } from "react-router-dom";
 import { useProducts } from "../../Context/ProductContext";
 import ResultBox from "./ResultBox";
 import "./Search.css";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const { products } = useProducts();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
+  const [productLimit, setProductLimit] = useState([]);
+  const navigate = useNavigate()
 
   function handleSearchProduct(event) {
     const serachQuery = event.target.value;
@@ -20,12 +22,15 @@ const Search = () => {
     });
 
     setFilteredProducts(filtered);
+    if (filteredProducts.length > 6) {
+      setProductLimit(filteredProducts.slice(0, 6));
+    } else {
+      setProductLimit(filteredProducts);
+    }
   }
-  function handleFocus() {
-    setFocused(true);
-  }
-  function handleBlur() {
-    setFocused(false);
+
+  function handleNavigateToResultPage (products) {
+    navigate(`/searchResult/${products}`)
   }
 
   return (
@@ -35,8 +40,8 @@ const Search = () => {
           placeholder="Search Here ..."
           value={query}
           onChange={handleSearchProduct}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
         />
         <SearchIcon />
       </div>
@@ -48,9 +53,18 @@ const Search = () => {
               <p>Just search anything you want</p>
             ) : filteredProducts.length > 0 ? (
               <div>
-                {filteredProducts.map((product) => (
+                {productLimit.map((product) => (
                   <ResultBox {...product} />
                 ))}
+
+                <button
+                  className={
+                    filteredProducts.length > 6 ? "result-product-btn" : "close"
+                  }
+                  onMouseDown={() => handleNavigateToResultPage(productLimit)}
+                >
+                  See more ...
+                </button>
               </div>
             ) : (
               <p>Product Not Found</p>
