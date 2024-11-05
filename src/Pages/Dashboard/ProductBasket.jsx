@@ -7,19 +7,19 @@ const ProductBasket = () => {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("productBasket")) || []
   );
-  const [quantities, setQuantities] = useState(Array(products.length).fill(0));
+  const [quantities, setQuantities] = useState(Array(products.length).fill(1));
+  const [productPrice, setProductPrice] = useState(
+    Array(products.length).fill(0)
+  );
 
   useEffect(() => {
     if (products) {
-      let totalPrice = products.map((element) => {
-        return element.price;
-      });
-      let sum = totalPrice.reduce(
-        (accumulator, currentValue) => accumulator + currentValue,
-        0
-      );
+      const totalPrice = products.reduce((total, product, index) => {
+        return total + product.price * quantities[index];
+      }, 0);
+      console.log(totalPrice);
 
-      setPrice(Math.round(sum));
+      setPrice();
     }
   }, [products]);
 
@@ -32,17 +32,21 @@ const ProductBasket = () => {
     setProducts(product);
   }
 
-  function increaseCount(index) {
-    const newQuantities = [...quantities]
-    newQuantities[index] += 1
-    setQuantities(newQuantities)
+  function increaseCount(index, product) {
+    const newQuantities = [...quantities];
+    newQuantities[index] += 1;
+    const finalPrice = product.price * newQuantities[index];
+    setQuantities(newQuantities);
+    setProductPrice(finalPrice);
   }
 
-  function decreaseCount(index) {
-    const newQuantities = [...quantities]
-    if (newQuantities[index] > 0) {
-      newQuantities[index] -= 1
-      setQuantities(newQuantities)
+  function decreaseCount(index, product) {
+    const newQuantities = [...quantities];
+    if (newQuantities[index] > 1) {
+      newQuantities[index] -= 1;
+      const finalPrice = product.price * newQuantities[index];
+      setProductPrice(finalPrice);
+      setQuantities(newQuantities);
     }
   }
 
@@ -59,10 +63,12 @@ const ProductBasket = () => {
             <div className="basket-title">{product.title}</div>
           </Link>
           <div className="right-basket">
-            <div className="basket-price">{product.price} $</div>
-            <button onClick={() => decreaseCount(index)}>-</button>
+            <div className="basket-price">
+              {quantities[index] === 1 ? product.price : productPrice} $
+            </div>
+            <button onClick={() => decreaseCount(index, product)}>-</button>
             <span>{quantities[index]}</span>
-            <button onClick={() => increaseCount(index)}>+</button>
+            <button onClick={() => increaseCount(index, product)}>+</button>
             <Button
               variant="contained"
               color="error"
