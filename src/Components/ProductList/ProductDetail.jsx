@@ -39,7 +39,7 @@ export default function ProductDetail({ image, title, price, rating, id }) {
         <Button
           color="primary"
           variant="contained"
-          sx={{ fontSize: 14 }}
+          sx={{ fontSize: 16 }}
           onClick={() => handleAddProduct(id)}
         >
           Buy

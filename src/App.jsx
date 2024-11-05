@@ -19,7 +19,7 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/category/:category" element={<CategoryPage />} />
-        <Route path="/searchResult/" element={<SearchResult />} />
+        <Route path="/searchResult" element={<SearchResult />} />
       </Routes>
     </Router>
   );

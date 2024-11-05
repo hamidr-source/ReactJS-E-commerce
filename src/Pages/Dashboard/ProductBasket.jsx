@@ -7,6 +7,7 @@ const ProductBasket = () => {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("productBasket")) || []
   );
+  const [quantities, setQuantities] = useState(Array(products.length).fill(0));
 
   useEffect(() => {
     if (products) {
@@ -31,6 +32,20 @@ const ProductBasket = () => {
     setProducts(product);
   }
 
+  function increaseCount(index) {
+    const newQuantities = [...quantities]
+    newQuantities[index] += 1
+    setQuantities(newQuantities)
+  }
+
+  function decreaseCount(index) {
+    const newQuantities = [...quantities]
+    if (newQuantities[index] > 0) {
+      newQuantities[index] -= 1
+      setQuantities(newQuantities)
+    }
+  }
+
   return (
     <div className="product-basket">
       {products.map((product, index) => (
@@ -45,6 +60,9 @@ const ProductBasket = () => {
           </Link>
           <div className="right-basket">
             <div className="basket-price">{product.price} $</div>
+            <button onClick={() => decreaseCount(index)}>-</button>
+            <span>{quantities[index]}</span>
+            <button onClick={() => increaseCount(index)}>+</button>
             <Button
               variant="contained"
               color="error"

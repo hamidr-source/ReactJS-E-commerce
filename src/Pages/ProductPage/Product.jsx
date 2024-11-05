@@ -45,7 +45,7 @@ const Product = () => {
           <Button
             color="primary"
             variant="contained"
-            sx={{ fontSize: 16 }}
+            sx={{ fontSize: 18 }}
             onClick={() => handleAddProduct(product)}
           >
             Buy
