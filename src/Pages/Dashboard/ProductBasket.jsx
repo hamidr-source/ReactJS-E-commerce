@@ -7,19 +7,18 @@ const ProductBasket = () => {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("productBasket")) || []
   );
-  const [quantities, setQuantities] = useState(Array(products.length).fill(1));
-  const [productPrice, setProductPrice] = useState(
-    Array(products.length).fill(0)
-  );
 
   useEffect(() => {
     if (products) {
-      const totalPrice = products.reduce((total, product, index) => {
-        return total + product.price * quantities[index];
-      }, 0);
-      console.log(totalPrice);
+      let totalPrice = products.map((element) => {
+        return element.price;
+      });
+      let sum = totalPrice.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      );
 
-      setPrice();
+      setPrice(Math.round(sum));
     }
   }, [products]);
 
@@ -30,24 +29,6 @@ const ProductBasket = () => {
 
     localStorage.setItem("productBasket", JSON.stringify(product));
     setProducts(product);
-  }
-
-  function increaseCount(index, product) {
-    const newQuantities = [...quantities];
-    newQuantities[index] += 1;
-    const finalPrice = product.price * newQuantities[index];
-    setQuantities(newQuantities);
-    setProductPrice(finalPrice);
-  }
-
-  function decreaseCount(index, product) {
-    const newQuantities = [...quantities];
-    if (newQuantities[index] > 1) {
-      newQuantities[index] -= 1;
-      const finalPrice = product.price * newQuantities[index];
-      setProductPrice(finalPrice);
-      setQuantities(newQuantities);
-    }
   }
 
   return (
@@ -63,12 +44,7 @@ const ProductBasket = () => {
             <div className="basket-title">{product.title}</div>
           </Link>
           <div className="right-basket">
-            <div className="basket-price">
-              {quantities[index] === 1 ? product.price : productPrice} $
-            </div>
-            <button onClick={() => decreaseCount(index, product)}>-</button>
-            <span>{quantities[index]}</span>
-            <button onClick={() => increaseCount(index, product)}>+</button>
+            <div className="basket-price">{product.price} $</div>
             <Button
               variant="contained"
               color="error"
