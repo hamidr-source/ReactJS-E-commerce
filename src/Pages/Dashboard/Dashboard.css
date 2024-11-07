@@ -8,7 +8,7 @@
 
 .dashboard button {
   width: 10vw;
-  height: 5vh;
+  height: auto;
 }
 
 .product-basket {
@@ -21,15 +21,15 @@
 
 .basket-image {
   width: 8vw;
-  height: 11vh;
+  height: auto;
 }
 
 .cart {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
-  height: 15vh;
-  box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
+  height: auto;
+  box-shadow: rgba(43, 52, 69, 0.1) 0px 4px 16px;
   padding: 1rem;
 }
 
@@ -46,16 +46,34 @@
   gap: 1rem;
   position: absolute;
   right: 5%;
-  padding-top: 1.5rem;
 }
 
 .basket-title {
-  width: 40%;
+  width: auto;
   padding-top: 1.5rem;
 }
 
 .total-price {
   position: relative;
   right: 0;
-  bottom: calc(- 100vh - 100vh);
+  bottom: calc(- 100vh - 150vh);
+}
+
+@media (max-width: 768px) {
+  .dashboard button {
+    width: auto;
+  }
+  .product-basket {
+    font-size: 1rem;
+  }
+  .basket-image {
+    width: 20vw;
+  }
+  .cart {
+    flex-direction: column;
+  }
+  .right-basket {
+    position: relative;
+    right: auto;
+  }
 }

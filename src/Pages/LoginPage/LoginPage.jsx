@@ -19,7 +19,7 @@ const LoginPage = () => {
       });
       console.log(userEmail.password);
       if (!currentUser) {
-        alert("User not exist");
+        alert("User don't exist");
       } else if (userPassword !== currentUser.password) {
         alert("Password is wrong");
       } else {
