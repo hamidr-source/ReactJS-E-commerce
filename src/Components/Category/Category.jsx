@@ -3,7 +3,6 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import "./Category.css";
 import { useProducts } from "../../Context/ProductContext";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Category = () => {
@@ -21,25 +20,24 @@ const Category = () => {
     setCategories([...categoriesSet]);
   }, [products]);
 
-  function handleOpenCategorySection() {
-    setIsOpen(!isOpen);
-  }
-
   return (
-    <div className="category" onClick={handleOpenCategorySection}>
+    <div className="category" onClick={() => setIsOpen(!isOpen)}>
       <div className="select">
         <span>Category</span>
         <span>
           {isOpen ? (
-            <KeyboardArrowUpIcon sx={{ fontSize: 24 }} />
+            <KeyboardArrowUpIcon />
           ) : (
-            <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
+            <KeyboardArrowDownIcon />
           )}
         </span>
       </div>
       <div className={isOpen ? "category-box open" : "category-box close"}>
         {categories.map((category, index) => (
-          <Link key={index} to={`/category/${category.split(` `).join(`-`).toLowerCase()}`}>
+          <Link
+            key={index}
+            to={`/category/${category.split(` `).join(`-`).toLowerCase()}`}
+          >
             <p className="categories">{category}</p>
           </Link>
         ))}

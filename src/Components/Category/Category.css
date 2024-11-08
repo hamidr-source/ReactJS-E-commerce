@@ -2,6 +2,13 @@
   font-size: 1.5rem;
   gap: 1rem;
   user-select: none;
+  width: 7vw;
+  height: 5vh;
+  position: absolute;
+  left: 3%;
+  background-color: #cecececb;
+  padding: .4rem .7rem;
+  border-radius: 1rem;
 }
 
 .select {
@@ -9,22 +16,23 @@
 }
 
 .category-box {
-  width: 20vw;
-  height: 30vh;
+  width: 15vw;
+  height: 25vh;
   color: black;
-  position: absolute;
-  left: 3%;
-  top: 100%;
+  position: relative;
+  left: 10%;
+  margin-top: 1rem;
   background-color: #fff;
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
   z-index: 1;
+  padding: .3rem;
 }
 
-.category-box p {
-  transition: .5s;
+.category-box a p {
+  transition: 0.5s;
 }
 
-.category-box p:hover {
+.category-box a p:hover {
   color: #fdc5ce;
 }
 

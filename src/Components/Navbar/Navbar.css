@@ -18,7 +18,7 @@
   align-items: center;
   width: auto;
   margin-right: 2rem;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .theme-changer,
@@ -34,10 +34,6 @@
 }
 
 .left-navbar {
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   margin-left: 3rem;
 }
 
@@ -50,6 +46,7 @@
 .navigation ul {
   list-style: none;
   display: flex;
+  margin-bottom: 2rem;
   gap: 2rem;
   padding: 0;
 }

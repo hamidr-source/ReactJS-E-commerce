@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import LocalMallRoundedIcon from "@mui/icons-material/LocalMallRounded";
 import "./Navbar.css";
 import { Cookies } from "react-cookie";
-import Category from "../Category/Category";
 
 const Navbar = () => {
   const cookies = new Cookies();
@@ -14,7 +13,6 @@ const Navbar = () => {
     <div className="navbar">
       <div className="left-navbar">
         <LocalMallRoundedIcon sx={{ fontSize: 50 }} />
-        <Category />
       </div>
 
       <div className="navigation">
