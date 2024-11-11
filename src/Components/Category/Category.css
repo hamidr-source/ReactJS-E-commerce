@@ -55,14 +55,14 @@
   .category {
     font-size: 1rem;
     width: 15vw;
-    height: 6vh;
-    top: 25%;
+    height: 3vh;
+    top: 15%;
     padding: .2rem .7rem;
   }
 
   .category-box {
-    width: 20vw;
-    height: 30vh;
+    width: 25vw;
+    height: 20vh;
     padding: .2rem;
   }
 }

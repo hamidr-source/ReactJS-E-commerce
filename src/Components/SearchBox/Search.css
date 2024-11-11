@@ -91,7 +91,7 @@
 @media (max-width: 768px) {
   .search-box {
     width: 30%;
-    top: 25%;
+    top: 15%;
     left: 80%;
   }
 
@@ -105,16 +105,21 @@
 
   .search-input svg {
     position: absolute;
-    bottom: 30%;
+    bottom: 50%;
   }
 
   .result-product {
     flex-direction: column; 
-    align-items: center; 
+    align-items: flex-start; 
+    gap: 1rem;
+    height: 15vh;
   }
 
   .result-product-image {
     width: 30%; 
+  }
+  .result-product-btn {
+    height: 5vh;
   }
 }
 
