@@ -1,5 +1,7 @@
-// src/ShoppingCart.js
 import React, { useEffect, useState } from "react";
+import Button from "@mui/material/Button";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -35,23 +37,23 @@ const ShoppingCart = () => {
   );
 
   return (
-    <div>
+    <div className="product-basket">
       {cartItems.length === 0 ? (
         <p>Your basket is empty.</p>
       ) : (
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.id}>
-              <img src={item.image} alt={item.title} />
-              <span>{item.title}</span>
+        cartItems.map((item) => (
+          <div key={item.id} className="cart">
+            <img src={item.image} alt={item.title} className="basket-image" />
+            <span className="basket-title">{item.title}</span>
+            <div className="right-basket">
               <span> Price {item.price} $</span>
-              <span> Quantity {item.quantity}</span>
-              <button onClick={() => updateQuantity(item.id, 1)}>افزودن</button>
-              <button onClick={() => updateQuantity(item.id, -1)}>کاهش</button>
-              <button onClick={() => handleRemoveItem(item.id)}>حذف</button>
-            </li>
-          ))}
-        </ul>
+              <Button onClick={() => updateQuantity(item.id, 1)}><AddIcon /></Button>
+              <span>{item.quantity}</span>
+              <Button onClick={() => updateQuantity(item.id, -1)}><RemoveIcon /></Button>
+              <Button onClick={() => handleRemoveItem(item.id)}>Remove</Button>
+            </div>
+          </div>
+        ))
       )}
       <h3>Total Price: {totalPrice} $</h3>
     </div>
