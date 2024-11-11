@@ -23,7 +23,7 @@ const Search = () => {
 
     setFilteredProducts(filtered);
     if (filteredProducts.length > 6) {
-      setProductLimit(filteredProducts.slice(0, 6));
+      setProductLimit(filteredProducts.slice(0, 4));
     } else {
       setProductLimit(filteredProducts);
     }
