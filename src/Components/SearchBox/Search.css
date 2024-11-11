@@ -90,8 +90,9 @@
 /* Media Queries */
 @media (max-width: 768px) {
   .search-box {
-    width: 40%;
-    top: 35%;
+    width: 30%;
+    top: 25%;
+    left: 80%;
   }
 
   .search-input {
@@ -103,9 +104,8 @@
   }
 
   .search-input svg {
-    height: 10%;
     position: absolute;
-    top: 33%;
+    bottom: 30%;
   }
 
   .result-product {
@@ -118,20 +118,3 @@
   }
 }
 
-@media (max-width: 480px) {
-  .search-box {
-    top: 20%;
-  }
-
-  .search-input {
-    font-size: 1rem; 
-  }
-
-  .search-input input {
-    font-size: 1rem; 
-  }
-
-  .result-product {
-    gap: 1rem;
-  }
-}

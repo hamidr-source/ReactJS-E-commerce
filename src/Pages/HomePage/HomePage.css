@@ -136,7 +136,7 @@
     flex-direction: column;
     align-items: center; 
     gap: 2rem; 
-    width: calc(100% - 2rem);
+    width: calc(100vw - 5rem);
     margin-bottom: 2rem;
     height: 40vh;
   }

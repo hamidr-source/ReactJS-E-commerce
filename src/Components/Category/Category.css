@@ -49,3 +49,20 @@
   margin: 1rem;
   cursor: pointer;
 }
+
+
+@media (max-width: 768px) {
+  .category {
+    font-size: 1rem;
+    width: 15vw;
+    height: 6vh;
+    top: 25%;
+    padding: .2rem .7rem;
+  }
+
+  .category-box {
+    width: 20vw;
+    height: 30vh;
+    padding: .2rem;
+  }
+}
