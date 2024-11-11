@@ -53,12 +53,6 @@
   padding-top: 1.5rem;
 }
 
-.total-price {
-  position: relative;
-  right: 0;
-  bottom: calc(- 100vh - 150vh);
-}
-
 @media (max-width: 768px) {
   .dashboard button {
     width: auto;

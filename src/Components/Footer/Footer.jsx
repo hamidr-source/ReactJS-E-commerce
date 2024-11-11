@@ -9,7 +9,7 @@ import "./Footer.css"
 const Footer = () => {
   return (
     <footer>
-      <div className="social-media">
+      <div className="social-media" id='contact-us'>
         <InstagramIcon sx={{ fontSize: 35 }} />
         <TelegramIcon sx={{ fontSize: 35 }} />
         <YouTubeIcon sx={{ fontSize: 35 }} />

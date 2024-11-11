@@ -24,7 +24,7 @@ const Navbar = () => {
             <Link to="/about">About Us</Link>
           </li>
           <li>
-            <Link to="/contact">Contact Us</Link>
+            <a href="#contact-us">Contact Us</a>
           </li>
         </ul>
       </div>

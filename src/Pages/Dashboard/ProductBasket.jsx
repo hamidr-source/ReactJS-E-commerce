@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -36,6 +37,8 @@ const ShoppingCart = () => {
     0
   );
 
+  const roundedPrice = totalPrice.toFixed(2);
+
   return (
     <div className="product-basket">
       {cartItems.length === 0 ? (
@@ -43,19 +46,27 @@ const ShoppingCart = () => {
       ) : (
         cartItems.map((item) => (
           <div key={item.id} className="cart">
-            <img src={item.image} alt={item.title} className="basket-image" />
-            <span className="basket-title">{item.title}</span>
+            <Link to={`/product/${item.id}`}>
+              <img src={item.image} alt={item.title} className="basket-image" />
+              <span className="basket-title">{item.title}</span>
+            </Link>
             <div className="right-basket">
               <span> Price {item.price} $</span>
-              <Button onClick={() => updateQuantity(item.id, 1)}><AddIcon /></Button>
+              <Button onClick={() => updateQuantity(item.id, 1)}>
+                <AddIcon />
+              </Button>
               <span>{item.quantity}</span>
-              <Button onClick={() => updateQuantity(item.id, -1)}><RemoveIcon /></Button>
-              <Button onClick={() => handleRemoveItem(item.id)}>Remove</Button>
+              <Button onClick={() => updateQuantity(item.id, -1)}>
+                <RemoveIcon />
+              </Button>
+              <Button onClick={() => handleRemoveItem(item.id)} color="error">
+                Remove
+              </Button>
             </div>
           </div>
         ))
       )}
-      <h3>Total Price: {totalPrice} $</h3>
+      <h3>Total Price: {roundedPrice} $</h3>
     </div>
   );
 };
