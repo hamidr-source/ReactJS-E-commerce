@@ -1,64 +1,61 @@
+// src/ShoppingCart.js
 import React, { useEffect, useState } from "react";
-import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
 
-const ProductBasket = () => {
-  const [price, setPrice] = useState(0);
-  const [products, setProducts] = useState(
-    JSON.parse(localStorage.getItem("productBasket")) || []
-  );
+const ShoppingCart = () => {
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    if (products) {
-      let totalPrice = products.map((element) => {
-        return element.price;
-      });
-      let sum = totalPrice.reduce(
-        (accumulator, currentValue) => accumulator + currentValue,
-        0
-      );
+    const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setCartItems(storedItems);
+  }, []);
 
-      setPrice(Math.round(sum));
-    }
-  }, [products]);
+  const handleRemoveItem = (id) => {
+    const updatedItems = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+  };
 
-  function handleRemoveProduct(productId) {
-    const product = products.filter((product) => {
-      return product.id !== productId;
-    });
+  const updateQuantity = (id, value) => {
+    const updatedItems = cartItems
+      .map((item) => {
+        if (item.id === id) {
+          return { ...item, quantity: item.quantity + value };
+        }
+        return item;
+      })
+      .filter((item) => item.quantity > 0);
 
-    localStorage.setItem("productBasket", JSON.stringify(product));
-    setProducts(product);
-  }
+    setCartItems(updatedItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+  };
+
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   return (
-    <div className="product-basket">
-      {products.map((product, index) => (
-        <div key={index} className="cart">
-          <Link to={`/product/${product.id}`}>
-            <img
-              src={product.image}
-              alt={product.title}
-              className="basket-image"
-            />
-            <div className="basket-title">{product.title}</div>
-          </Link>
-          <div className="right-basket">
-            <div className="basket-price">{product.price} $</div>
-            <Button
-              variant="contained"
-              color="error"
-              onClick={() => handleRemoveProduct(product.id)}
-            >
-              Remove
-            </Button>
-          </div>
-        </div>
-      ))}
-
-      <p className="total-price">Total Price: {price} $</p>
+    <div>
+      {cartItems.length === 0 ? (
+        <p>Your basket is empty.</p>
+      ) : (
+        <ul>
+          {cartItems.map((item) => (
+            <li key={item.id}>
+              <img src={item.image} alt={item.title} />
+              <span>{item.title}</span>
+              <span> Price {item.price} $</span>
+              <span> Quantity {item.quantity}</span>
+              <button onClick={() => updateQuantity(item.id, 1)}>افزودن</button>
+              <button onClick={() => updateQuantity(item.id, -1)}>کاهش</button>
+              <button onClick={() => handleRemoveItem(item.id)}>حذف</button>
+            </li>
+          ))}
+        </ul>
+      )}
+      <h3>Total Price: {totalPrice} $</h3>
     </div>
   );
 };
 
-export default ProductBasket;
+export default ShoppingCart;

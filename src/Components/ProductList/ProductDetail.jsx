@@ -25,7 +25,7 @@ export default function ProductDetail({ image, title, price, rating, id }) {
       <Link to={`/product/${id}`}>
         <img src={image} alt={displayTitle} className="product-image" />
         <div className="product-title">{displayTitle}</div>
-        <div className="product-rating">
+        <div className="product-rating">1
           <Rating
             name="read-only"
             value={rating.rate}

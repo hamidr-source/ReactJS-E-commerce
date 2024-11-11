@@ -7,17 +7,20 @@ export const useProducts = () => useContext(ProductContext);
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
-  function handleAddProductInBasket(product) {
-    const cart = JSON.parse(localStorage.getItem("productBasket"));
-    if (cart) {
-      cart.push(product);
-      localStorage.setItem("productBasket", JSON.stringify(cart));
-      alert("Prodcut add");
+  const handleAddProductInBasket = (item) => {
+    const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existingItem = storedItems.find((i) => i.id === item.id);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
     } else {
-      localStorage.setItem("productBasket", JSON.stringify([]));
-      alert("Prodcut don't add");
+      item.quantity = 1;
+      storedItems.push(item);
     }
-  }
+
+    localStorage.setItem("cartItems", JSON.stringify(storedItems));
+    alert("Product Added");
+  };
 
   useEffect(() => {
     axios
