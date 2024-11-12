@@ -14,7 +14,7 @@ const Notification = ({ message, type, onClose }) => {
   return ReactDOM.createPortal(
     <div className={`notification ${type}`}>
       <span>{message}</span>
-      <button onClick={onClose}>×</button>
+
     </div>,
     document.getElementById("portal-root")
   );

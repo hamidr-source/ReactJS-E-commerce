@@ -1,24 +1,37 @@
+@keyframes slideUp {
+  0% {
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+  100% {
+    transform: translateY(100%); 
+    opacity: 0;
+  }
+}
+
 .notification {
   position: fixed;
   top: 20px;
   right: 20px;
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 8px; 
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.3s ease; 
   z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: slideUp 4s forwards; 
 }
 
 .notification.success {
-  background-color: green;
+  background-color: #28a745;
 }
 
 .notification.error {
-  background-color: red;
+  background-color: #dc3545;
 }
 
 .notification button {
@@ -27,4 +40,31 @@
   border: none;
   color: white;
   cursor: pointer;
+  font-size: 1rem;
+}
+
+.notification button:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .notification {
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 0.9rem;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .notification {
+    width: calc(50% - 40px);
+    right: calc(50% - 25%);
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

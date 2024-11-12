@@ -21,9 +21,9 @@ const LoginPage = () => {
       });
       console.log(userEmail.password);
       if (!currentUser) {
-        setNotification({ message: "User not found!", type: "error" });
+        setNotification({ message: "User not found !!", type: "error" });
       } else if (userPassword !== currentUser.password) {
-        setNotification({ message: "Password is wrong", type: "error" });
+        setNotification({ message: "Password is wrong !!", type: "error" });
       } else {
         const date = new Date();
         date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
