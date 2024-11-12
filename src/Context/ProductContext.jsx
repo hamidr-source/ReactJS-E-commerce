@@ -19,7 +19,7 @@ const ProductProvider = ({ children }) => {
     }
 
     localStorage.setItem("cartItems", JSON.stringify(storedItems));
-    alert("Product Added");
+    // alert("Product Added");
   };
 
   useEffect(() => {

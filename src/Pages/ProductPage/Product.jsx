@@ -3,16 +3,23 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Rating } from "@mui/material";
 import Button from "@mui/material/Button";
-import "./Product.css";
 import { useProducts } from "../../Context/ProductContext";
+import Notification from "../../Components/Notification/Notification";
+import "./Product.css";
 
 const Product = () => {
   const [product, setProdct] = useState([]);
+  const [notification, setNotification] = useState(null);
   const params = useParams();
-  const {handleAddProductInBasket} = useProducts()
+  const { handleAddProductInBasket } = useProducts();
 
   function handleAddProduct(product) {
-    handleAddProductInBasket(product)
+    setNotification({message: "Product Added", type: "success"})
+    handleAddProductInBasket(product);
+  }
+
+  function closeNotification () {
+    setNotification(null)
   }
 
   useEffect(() => {
@@ -50,6 +57,13 @@ const Product = () => {
           >
             Buy
           </Button>
+          {notification && (
+            <Notification
+              message={notification.message}
+              type={notification.type}
+              onClose={closeNotification}
+            />
+          )}
         </p>
       </div>
       <p className="product-item-desc">{product.description}</p>

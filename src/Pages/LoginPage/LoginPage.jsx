@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useUsersData } from "../../Context/UserContext";
+import Notification from "../../Components/Notification/Notification";
 import "./LoginPage.css";
 
 const LoginPage = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [notification, setNotification] = useState(null);
   const { users } = useUsersData();
   const [cookies, setCookie] = useCookies(["user"]);
   const navigate = useNavigate();
@@ -19,9 +21,9 @@ const LoginPage = () => {
       });
       console.log(userEmail.password);
       if (!currentUser) {
-        alert("User don't exist");
+        setNotification({ message: "User not found!", type: "error" });
       } else if (userPassword !== currentUser.password) {
-        alert("Password is wrong");
+        setNotification({ message: "Password is wrong", type: "error" });
       } else {
         const date = new Date();
         date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
@@ -29,6 +31,10 @@ const LoginPage = () => {
         navigate("/");
       }
     }
+  }
+
+  function closeNotification() {
+    setNotification(null);
   }
 
   return (
@@ -50,6 +56,13 @@ const LoginPage = () => {
             onChange={(e) => setUserPassword(e.target.value)}
           />
           <button>login</button>
+          {notification && (
+            <Notification
+              message={notification.message}
+              type={notification.type}
+              onClose={closeNotification}
+            />
+          )}
           <p className="message">
             Not registered?
             <Link to="/sign-up"> Create account</Link>
