@@ -4,7 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Link } from "react-router-dom";
 
-const ShoppingCart = () => {
+const ProductBasket = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -71,4 +71,4 @@ const ShoppingCart = () => {
   );
 };
 
-export default ShoppingCart;
+export default ProductBasket;
