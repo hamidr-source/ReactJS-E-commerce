@@ -56,7 +56,7 @@
 
 @media (max-width: 1024px) {
   .product-card {
-    width: calc(50% - 2rem); 
+    width: calc(40% - 2rem); 
     font-size: 1.3rem; 
   }
 }

@@ -56,8 +56,9 @@
     font-size: 1rem;
     width: 15vw;
     height: 3vh;
-    top: 15%;
-    padding: .2rem .7rem;
+    top: 20%;
+padding: 0 .8rem;
+    border-radius: .5rem;
   }
 
   .category-box {
