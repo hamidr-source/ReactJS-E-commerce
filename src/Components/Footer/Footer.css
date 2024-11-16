@@ -1,20 +1,19 @@
 footer {
-  position: absolute;
+  position: relative;
   left: 0;
-  bottom: calc(-100vh -150vh);
+  bottom: 0;
   width: 100vw;
   display: flex;
   height: 15vh;
   background-color: #0f3460;
-  padding: 1rem; 
+  padding: 1rem;
 }
 
 .social-media {
   color: white;
-  justify-content: end;
-  position: inherit;
-  right: 5%;
-  bottom: 5%;
+  position: relative;
+  left: 70%;
+  top: 0;
   display: flex;
   gap: 1em;
 }
@@ -27,9 +26,9 @@ footer {
   display: flex;
   gap: 1rem;
   flex-direction: column;
-  position: absolute;
-  left: 3%;
-  bottom: 5%;
+  position: relative;
+  left: 0;
+  top: 0;
 }
 
 .left-footer p {
@@ -41,26 +40,22 @@ footer {
 @media (max-width: 768px) {
   footer {
     height: 20%;
-    padding: .5rem; 
+    padding: 0.5rem;
   }
 
   .social-media {
     justify-content: center;
-    margin-top: 1rem; 
+    flex-direction: column;
+    gap: 10px;
+    left: 80%;
   }
 
   .left-footer {
-    align-items: center; 
-    margin-top: 1rem; 
+    left: 0;
+    gap: 0.5rem;
   }
 
   .left-footer p {
-    font-size: .9rem; 
-  }
-}
-
-@media (max-width: 480px) {
-  .left-footer p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }

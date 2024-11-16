@@ -21,8 +21,8 @@ const Category = () => {
   }, [products]);
 
   return (
-    <div className="category" onClick={() => setIsOpen(!isOpen)}>
-      <div className="select">
+    <div className="category">
+      <div className="select" onClick={() => setIsOpen(!isOpen)}>
         <span>Category</span>
         <span>
           {isOpen ? (

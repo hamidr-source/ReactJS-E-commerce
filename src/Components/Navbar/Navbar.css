@@ -7,7 +7,7 @@
   align-items: center;
   height: 15vh;
   width: 100vw;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 10;
 }
@@ -69,9 +69,10 @@
   }
 
   .right-navbar {
-    justify-content: space-between;
-    margin-right: 0;
+    flex-direction: column;
+    margin-right: 20px;
     margin-top: 10px;
+    gap: 1.5rem;
   }
 
   .navigation {

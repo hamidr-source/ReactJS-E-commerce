@@ -1,13 +1,11 @@
 .category {
   font-size: 1.5rem;
-  gap: 1rem;
-  user-select: none;
   width: 7vw;
   height: 5vh;
-  position: absolute;
-  left: 3%;
+  position: relative;
+  left: 4%;
   background-color: #cecececb;
-  padding: .4rem .7rem;
+  padding: 0.4rem 0.7rem;
   border-radius: 1rem;
 }
 
@@ -25,7 +23,7 @@
   background-color: #fff;
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
   z-index: 1;
-  padding: .3rem;
+  padding: 0.3rem;
 }
 
 .category-box a p {
@@ -50,20 +48,29 @@
   cursor: pointer;
 }
 
-
 @media (max-width: 768px) {
   .category {
     font-size: 1rem;
     width: 15vw;
-    height: 3vh;
-    top: 20%;
-padding: 0 .8rem;
-    border-radius: .5rem;
+    height: 4vh;
+    padding: 0 0.8rem;
+    border-radius: 0.5rem;
   }
 
   .category-box {
     width: 25vw;
     height: 20vh;
-    padding: .2rem;
+    padding: 0.2rem;
+  }
+}
+
+@media (max-width:425px) {
+  .category {
+    width: 24vw;
+    font-size: .8rem;
+  }
+
+  .category-box {
+    width: 30vw;
   }
 }
