@@ -69,5 +69,6 @@
   .right-basket {
     position: relative;
     right: auto;
+    gap: .3rem;
   }
 }

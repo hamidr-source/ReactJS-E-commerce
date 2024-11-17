@@ -2,8 +2,9 @@
   font-size: 1.5rem;
   width: 7vw;
   height: 5vh;
-  position: relative;
+  position: absolute;
   left: 4%;
+  top: 15%;
   background-color: #cecececb;
   padding: 0.4rem 0.7rem;
   border-radius: 1rem;
@@ -15,7 +16,7 @@
 
 .category-box {
   width: 15vw;
-  height: 25vh;
+  height: fit-content;
   color: black;
   position: relative;
   left: 10%;
@@ -46,6 +47,7 @@
   display: block;
   margin: 1rem;
   cursor: pointer;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -53,24 +55,32 @@
     font-size: 1rem;
     width: 15vw;
     height: 4vh;
+    top: 20%;
     padding: 0 0.8rem;
     border-radius: 0.5rem;
   }
 
   .category-box {
     width: 25vw;
-    height: 20vh;
     padding: 0.2rem;
+    margin-top: .5rem;
   }
 }
 
-@media (max-width:425px) {
+@media (max-width: 425px) {
   .category {
-    width: 24vw;
-    font-size: .8rem;
+    width: 25vw;
+    top: 20%;
+    font-size: 0.7rem;
   }
 
   .category-box {
-    width: 30vw;
+    width: 33vw;
+    margin-top: .5rem;
+    padding: 0.2rem;
+  }
+
+  .categories {
+    width: 80%;
   }
 }
