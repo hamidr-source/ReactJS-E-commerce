@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../LoginPage/LoginPage.css";
 import { useUsersData } from "../../Context/UserContext";
 import { useInput } from "../../Hooks/useInput";
 import { Link, useNavigate } from "react-router-dom";
+import Notification from "../../Components/Notification/Notification";
 
 const SignupPage = () => {
   const [emailProps, resetEmail] = useInput("");
@@ -11,15 +12,19 @@ const SignupPage = () => {
   const [passwordProps, resetPassword] = useInput("");
   const [confirmPasswordProps, resetCofirmPassword] = useInput("");
   const { users, handleAddUser } = useUsersData();
+  const [notification, setNotification] = useState(null);
   const navigate = useNavigate();
   let checkMobile = phoneProps.value.match(/^0?9[0-9]{9}$/);
 
   async function handleSubmit(e) {
     e.preventDefault();
     if (passwordProps.value !== confirmPasswordProps.value) {
-      alert("Confirm password is wrong!");
+      setNotification({
+        message: "Please check confirm password !!",
+        type: "error",
+      });
     } else if (!checkMobile) {
-      alert("Phone number is wrong!");
+      setNotification({ message: "Phone number invalid !!", type: "error" });
     } else {
       const currentUser = users.find((userData) => {
         return (
@@ -39,7 +44,7 @@ const SignupPage = () => {
         navigate("/");
       } else {
         navigate("/login");
-        alert("User already exist");
+        setNotification({ message: "User already exist !!", type: "error" });
       }
 
       resetUserName();
@@ -48,6 +53,10 @@ const SignupPage = () => {
       resetCofirmPassword();
       resetPhone();
     }
+  }
+
+  function closeNotification() {
+    setNotification(null);
   }
 
   return (
@@ -73,6 +82,13 @@ const SignupPage = () => {
             <Link to="/login"> Login now</Link>
           </p>
         </form>
+        {notification && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+            onClose={closeNotification}
+          />
+        )}
       </div>
     </div>
   );
