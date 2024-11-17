@@ -182,6 +182,11 @@
     padding-top: 0;
   }
 
+  .left-slide-side {
+    height: 40vh;
+    width: 100%;
+  }
+
   .right-slide-side p {
     height: auto;
     width: 100%;

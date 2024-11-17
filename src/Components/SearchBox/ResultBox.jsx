@@ -9,6 +9,7 @@ const ResultBox = ({ title, id, image }) => {
     : title.split(" ").slice(0, 8).join(" ") + " ..."
 
   function handleProductClick(productId) {
+    document.body.style.overflow = 'auto';
     navigate(`/product/${productId}`);
   }
 

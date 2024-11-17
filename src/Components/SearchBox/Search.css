@@ -23,6 +23,11 @@
   border-radius: 60%;
 }
 
+.mobile-search-box {
+  position: absolute;
+  top: 22%;
+}
+
 .modal-content {
   position: fixed;
   top: 0;
@@ -57,6 +62,9 @@
   left: 0;
   width: 10%;
   height: 5%;
+  border: none;
+  outline: none;
+  background-color: #fff;
 }
 
 .modal {
@@ -164,7 +172,7 @@
 @media (max-width: 768px) {
   .search-box {
     width: 30%;
-    top: 18%;
+    top: 19%;
     left: 80%;
   }
 
@@ -195,20 +203,3 @@
   }
 }
 
-/* @media (max-width:425) {
-  .result-box-open  {
-    width: 50vw;
-    height: fit-content;
-    background-color: #fff;
-    color: #000;
-  }
-
-  .result-product-btn {
-    width: 10vw;
-  }
-
-  .result-product {
-    width: 50%;
-    gap: 2rem;
-  }
-} */
